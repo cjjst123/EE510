@@ -1,3 +1,12 @@
+%   This question is about discreting the interval and apply numerical analysis to solve equation for certain points.
+%
+%
+%   Here are two critical pinciples:
+%   (1)  ${f'[xn] = (f[xn+1] + f[xn-1]) / h}
+%   (2)  ${f''[n]= (f[x_{n+1}] - 2*f[xn] + f[xn-1]) / h^2}
+%
+%   By applying 
+
 n = 2000;           %Number of dots
 l = 0;              %Left boundary
 r = pi;             %Right boundary
