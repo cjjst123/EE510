@@ -7,7 +7,7 @@
 %   By applying numerical analysis, we can easily create function. For f"(x) - 2*f'(x) = cosx,
 %   let x = xn, The equation can be written as:
 %
-%          (1/h^2+1/h , 1/h^2 ,1/h^2-1/h) * (x[n-1],x[n],x[n+1]) = cos(xn)
+%          (1/h^2+1/h , 1/h^2 ,1/h^2-1/h) * (x[n-1],x[n],x[n+1])T = cos(xn)
 %
 %    For x = xn.
 %    Then we can create sparse matrix.
