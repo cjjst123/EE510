@@ -11,7 +11,6 @@
 %
 %    For x = xn.
 %    Then we can create sparse matrix.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 n = 2000;           % Number of dots
 l = 0;              % Left boundary
