@@ -2,8 +2,8 @@
 %
 %
 %   Here are two critical pinciples:
-%   (1)  ${f'[xn] = (f[xn+1] + f[xn-1]) / h}
-%   (2)  ${f''[n]= (f[x_{n+1}] - 2*f[xn] + f[xn-1]) / h^2}
+%   (1)  f'[xn] = (f[xn+1] + f[xn-1]) / h
+%   (2)  f"[n]= (f[x_{n+1}] - 2*f[x_{n}] + f[x_{n-1}]) / h^2}
 %
 %   By applying 
 
