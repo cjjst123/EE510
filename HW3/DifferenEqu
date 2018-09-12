@@ -18,7 +18,7 @@ n = 2000;           %Number of dots
 l = 0;              %Left boundary
 r = pi;             %Right boundary
 vl = 0;             %f(l)
-vr = -1;            %f(r)
+vr = 0;             %f(r), This can also be -1
 h =(r-l)/(n-1);     %Step for equation
 
 A = sparse(n,n);        %Target matrix
