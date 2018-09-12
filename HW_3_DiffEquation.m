@@ -1,3 +1,4 @@
+<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
 %   This question is about discreting the interval and apply numerical analysis to solve equation for certain points.
 %
 %
