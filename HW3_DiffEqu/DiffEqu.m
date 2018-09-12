@@ -9,7 +9,6 @@
 %
 %          (1/h^2+1/h , 1/h^2 ,1/h^2-1/h) * (x[n-1],x[n],x[n+1])T = cos(xn)
 %
-%    For x = xn.
 %    Then we can create sparse matrix.
 
 n = 2000;           % Number of dots
@@ -30,7 +29,7 @@ A(1,1) = 1;                     % For both-side, assigning cof 1
 A(n,n) = 1;
 
 for i=2:n-1
-    A(i,i-1:i+1) = [1/h^2+1/h , -2/h^2 1/h^2-1/h];          %Differential equation
+    A(i,i-1:i+1) = [1/h^2+1/h , -2/h^2 , 1/h^2-1/h];          %Differential equation
 end
 
 fx = A \ b;
