@@ -1,11 +1,17 @@
 %   This question is about discreting the interval and apply numerical analysis to solve equation for certain points.
 %
-%
 %   Here are two critical pinciples:
-%   (1)  <a href="https://www.codecogs.com/eqnedit.php?latex=f'[x_n]&space;=&space;\frac{(f[x_{n&plus;1}]&space;&plus;&space;f[x_{n-1}])&space;}{&space;h}" target="_blank"><img 
-%   (2)  f"[n]= (f[x_{n+1}] - 2*f[x_{n}] + f[x_{n-1}]) / h^2}
+%   (1)  f'[n]= (f[n+1] - f[n-1]) / (2*h)
+%   (2)  f"[n]= (f[n+1] - 2*f[n] + f[n-1]) / h^2
 %
-%   By applying 
+%   By applying numerical analysis, we can easily create function. For f"(x) - 2*f'(x) = cosx,
+%   let x = xn, The equation can be written as:
+%
+%          (1/h^2+1/h , 1/h^2 ,1/h^2-1/h) * (x[n-1],x[n],x[n+1]) = cos(xn)
+%
+%    For x = xn.
+%    Then we can create sparse matrix.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 n = 2000;           %Number of dots
 l = 0;              %Left boundary
