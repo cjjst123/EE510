@@ -11,7 +11,7 @@
 %
 %    Then we can create sparse matrix.
 
-n = 2000;           % Number of dots
+n = 2000;           % Sampling numbeer
 l = 0;              % Left boundary
 r = pi;             % Right boundary
 vl = 0;             % f(l)
