@@ -13,21 +13,21 @@
 %    Then we can create sparse matrix.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-n = 2000;           %Number of dots
-l = 0;              %Left boundary
-r = pi;             %Right boundary
-vl = 0;             %f(l)
-vr = 0;             %f(r), This can also be -1
-h =(r-l)/(n-1);     %Step for equation
+n = 2000;           % Number of dots
+l = 0;              % Left boundary
+r = pi;             % Right boundary
+vl = 0;             % f(l)
+vr = 0;             % f(r), This can also be -1
+h =(r-l)/(n-1);     % Step for equation
 
-A = sparse(n,n);        %Target matrix
-b = zeros(n,1);         %Right-hand-side value
-x = linspace(l,r,n);    %Split interval to calculate 
+A = sparse(n,n);        % Target matrix
+b = zeros(n,1);         % Right-hand-side value
+x = linspace(l,r,n);    % Split interval to calculate 
 
-b([1 n]) = [vl vr];     %For left and right, assigning initial value
-b(2:n-1) = cos(x(2:n-1));       %Create differential equation
+b([1 n]) = [vl vr];     % For left and right, assigning initial value
+b(2:n-1) = cos(x(2:n-1));       % Create differential equation
 
-A(1,1) = 1;                     %For both-side, assigning cof 1
+A(1,1) = 1;                     % For both-side, assigning cof 1
 A(n,n) = 1;
 
 for i=2:n-1
