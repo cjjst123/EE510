@@ -11,5 +11,6 @@
 
 Take n = 8. The 64*64 matrix for A is :
 ![image](https://github.com/cjjst123/EE510/blob/master/HW3_DiffEqu/64_64.png)
+
 And take n = 20. The 400*400 matrix looks like:
 ![image](https://github.com/cjjst123/EE510/blob/master/HW3_DiffEqu/400_400.png)
