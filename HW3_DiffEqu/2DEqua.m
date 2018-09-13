@@ -34,6 +34,7 @@ end
 x = A \ b;                  % Solve equation
 x = reshape(x,n,n);         % Reshape x           
 surf(t,t,x);                % Show 3d graph
-A=double(A);                % Save A as image
+A=full(A);                  % Save A as image
 A = abs(A) >= 1e-8;
+figure
 imshow(A)
