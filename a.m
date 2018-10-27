@@ -14,7 +14,7 @@ b = GDP(2:end,2) - GDP(1:end-1,2);          % Calculate difference of of GDP
 
 x = pinv(A) * b;                            % Acquire regression coefficiency
 
-fprintf('c = %f\n b = %f\n',-x(1),x(2));
+fprintf('c = %f\nb = %f\n',-x(1),x(2));
 
 [nop,id] = sort(A(:,1));                    % Sort pair (A,b) for line chart display
 A=A(id,:);
