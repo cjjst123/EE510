@@ -10,7 +10,7 @@ year_ed = GDP(end,1);
 
 A = UNEM(2:end,2) - UNEM(1:end-1,2);        % Calculate the difference of unemployment
 A = [A ones(size(A)) ];                     % Create LS matrix
-b = GDP(2:end,2) - GDP(1:end-1,2);          % Calculate difference of of GDP
+b = GDP(2:end,2)                            % Calculate difference of of GDP
 
 x = pinv(A) * b;                            % Acquire regression coefficiency
 
@@ -21,4 +21,3 @@ A=A(id,:);
 b=b(id);
 
 plot(A(:,1),b,'ro',A(:,1),A*x,'-b');
-
