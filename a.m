@@ -1,25 +1,18 @@
-% star.m
-data = csvread('Cepheid.csv');                  % Read csv
-period = log10(data(:,1));                      % Take log10 of the period
-maxi = data(:,2);
-mini = data(:,3);
+data = csvread('Hubble.csv');
+dist = data(:,1);
+velo = data(:,2);
 
-A_max = [period,ones(size(period))];            % Max regression matrix
-A_min = [period,ones(size(period))];            % Min regression matrix
+dis_vs_velo = pinv(velo)*dist;
+velo_vs_dis = pinv(dist)*velo;
 
-X_max = pinv(A_max) * maxi;                     % Cof of max
-X_min = pinv(A_min) * mini;                     % Cof of min
+fprintf('\ndis_vs_velo=%f\n\nvelo_vs_dis=%f\n\n',dis_vs_velo,velo_vs_dis);
+u_data = mean(data);                                
+[u,s,v] = svd(data-u_data);                             % Decentralization
+decode = v(:,1);
+pca = (data - u_data) * decode * decode' + u_data;      % PCA conpress & recover
 
-plot(period,mini,'-ro',period,maxi,'-ro',period,A_min * X_min,'-b',period,A_max * X_max,'-b')
+plot(dist,velo,'bo',velo*dis_vs_velo,velo, dist,dist*velo_vs_dis, pca(:,1),pca(:,2))
+legend('Data','Velo--dist','Dist--velo','PCA')
+xlabel('Distance parsecs')
+ylabel('Velocity km/sec')
 
-xlabel('period(log)')
-ylabel('Lumisity')
-
-axis ij;                                        % Reverse y axis
-u_max = mean(maxi);
-u_min = mean(mini);
-
-R_max_2 = 1 - sum( (maxi -  A_max * X_max).^2 ) / sum( (maxi-u_max).^2 );       % Calculate R_max ^2
-R_min_2 = 1 - sum( (mini -  A_min * X_min).^2 ) / sum( (mini-u_min).^2 );       % Calculate R_min ^2
-
-fprintf('Rmax^2 = %f \nRmin^2 = %f\n',R_max_2,R_min_2)
