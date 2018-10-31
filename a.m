@@ -1,3 +1,4 @@
+% hubble.m
 data = csvread('Hubble.csv');
 dist = data(:,1);
 velo = data(:,2);
