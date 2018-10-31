@@ -1,25 +1,25 @@
-%okuns.m
-GDP = csvread('GDP_change.csv');
-UNEM = csvread('Annual_unemployment_rates.csv');
+% star.m
+data = csvread('Cepheid.csv');                  % Read csv
+period = log10(data(:,1));                      % Take log10 of the period
+maxi = data(:,2);
+mini = data(:,3);
 
-GDP = GDP( GDP(:,1) >=UNEM(1,1) &  GDP(:,1) <=UNEM(end,1) ,:);              % Match input size
-assert(size(GDP,1) == size(UNEM,1) );                                       % Argument checking
+A_max = [period,ones(size(period))];            % Max regression matrix
+A_min = [period,ones(size(period))];            % Min regression matrix
 
-year_st = GDP(2,1);                         % Year of start and end
-year_ed = GDP(end,1);
+X_max = pinv(A_max) * maxi;                     % Cof of max
+X_min = pinv(A_min) * mini;                     % Cof of min
 
-A = UNEM(2:end,2) - UNEM(1:end-1,2);        % Calculate the difference of unemployment
-A = [A ones(size(A)) ];                     % Create LS matrix
-b = GDP(2:end,2);                            % Calculate difference of of GDP
+plot(period,mini,'-ro',period,maxi,'-ro',period,A_min * X_min,'-b',period,A_max * X_max,'-b')
 
-x = pinv(A) * b;                            % Acquire regression coefficiency
+xlabel('period(log)')
+ylabel('Lumisity')
 
-fprintf('c = %f\nk = %f\n',-x(1),x(2));
+axis ij;                                        % Reverse y axis
+u_max = mean(maxi);
+u_min = mean(mini);
 
-[nop,id] = sort(A(:,1));                    % Sort pair (A,b) for line chart display
-A=A(id,:);
-b=b(id);
+R_max_2 = 1 - sum( (maxi -  A_max * X_max).^2 ) / sum( (maxi-u_max).^2 );       % Calculate R_max ^2
+R_min_2 = 1 - sum( (mini -  A_min * X_min).^2 ) / sum( (mini-u_min).^2 );       % Calculate R_min ^2
 
-plot(A(:,1),b,'ro',A(:,1),A*x,'-b');
-xlabel('Change in unemployment')
-ylabel('Change in GDP')
+fprintf('Rmax^2 = %f \nRmin^2 = %f\n',R_max_2,R_min_2)
