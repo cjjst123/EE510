@@ -14,6 +14,6 @@ pca = (data - u_data) * decode * decode' + u_data;      % PCA conpress & recover
 
 plot(dist,velo,'bo',velo*dis_vs_velo,velo, dist,dist*velo_vs_dis, pca(:,1),pca(:,2))
 legend('Data','Velo--dist','Dist--velo','PCA')
-xlabel('Distance parsecs')
+xlabel('Distance (10^6)parsecs')
 ylabel('Velocity km/sec')
 
