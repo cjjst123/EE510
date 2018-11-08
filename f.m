@@ -1,7 +1,7 @@
 % mapower.m
 A = [0 -3 -2;2 5 2;-2 -3 0];                % Matrix A
 
-u = zeros(3,3);                             % Initialize eigen 
+u = zeros(3,3);                             % Initialize eigenvectors
 eigen = zeros(1,3);
 epoch = 200;
 
