@@ -25,7 +25,7 @@ for j = 1:epoch
     x = x / norm(x);
 end
 u(:,3) = x;
-eigen(3) = x'*A*x;  
+eigen(3) = 1/(x'*A*x);                      % It's the reciprocal of minimun eigenvalue
 fprintf('Eigenvectors are :\n')
 disp(u);
 fprintf('Eigenvalues are: \n')
