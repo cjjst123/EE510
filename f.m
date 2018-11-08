@@ -16,7 +16,7 @@ eigenval = x'*A*x;                  % Calculate eigenvalue(if truely convergent)
 try
     assert(sum(A*x - eigenval*x) < 1e-10)       % Check if AX = λx by summing the difference
     fprintf('Check sucess!\n')
+    fprintf('The largest-magnitude eigenvalue is %.6f.\n',eigenval);
 catch
-    fprintf('The iteration is not convergent')
+    fprintf('The iteration is not convergent\n')
 end
-fprintf('The largest-magnitude eigenvalue is %.6f.\n',eigenval);
