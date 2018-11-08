@@ -1,3 +1,4 @@
+% max_eig.m
 n = 100;
 A = rand(n,n);
 A = diag(diag(A)) + triu(A,1) + triu(A,1)';
